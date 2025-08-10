@@ -1,0 +1,196 @@
+/* -------------------------
+   Reset & base
+   ------------------------- */
+   * { box-sizing: border-box; margin: 0; padding: 0; }
+   html,body { height: 100%; }
+   body {
+     font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+     background: #f7f5f2; /* cream */ 
+     color: #222;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+     line-height: 1.3;
+   }
+   
+   /* -------------------------
+      Header
+      ------------------------- */
+   .site-header{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 18px 28px;
+     background: transparent;
+   }
+   .header-left { display:flex; align-items:center; gap:18px; min-width:250px; }
+   .searchwrap {
+     display:flex; align-items:center; gap:8px;
+     border: 1px solid rgba(0,0,0,.12);
+     background: #fff;
+     padding:6px 10px;
+     border-radius:4px;
+     min-width:180px;
+   }
+   .searchwrap input {
+     border: none; outline: none; font-size:14px; width:100%;
+     background: transparent;
+   }
+   .top-date { font-size:14px; color:#333; opacity:.9; }
+   
+   .site-title {
+     font-family: "Playfair Display", serif;
+     font-weight:700;
+     font-size:48px;
+     color:#203f3a; /* dark teal/green */
+     letter-spacing:2px;
+     text-align:center;
+     line-height:1;
+   }
+   
+   .header-right { display:flex; align-items:center; gap:18px; min-width:220px; justify-content:flex-end; }
+   .home-link { font-size:14px; color:#1b5b4f; text-decoration:underline; text-decoration-thickness:1px; }
+   .profile { display:flex; align-items:center; gap:10px; color:#333; font-size:12px; text-transform:uppercase; letter-spacing:.6px; }
+   .prof-pic { width:34px; height:34px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 0 rgba(0,0,0,.06); }
+   
+   /* thin divider */
+   .thin-divider{ height:2px; border-top:1px solid rgba(0,0,0,.08); border-bottom:1px solid rgba(255,255,255,.6); }
+   
+   /* -------------------------
+      Main layout grid
+      ------------------------- */
+   .layout{
+     max-width:1200px;
+     margin: 20px auto;
+     display:grid;
+     grid-template-columns: 220px 1fr 260px;
+     gap: 28px;
+     padding: 0 18px 60px;
+   }
+   
+   /* Column headings */
+   .col-heading{ font-weight:700; letter-spacing:.6px; font-size:18px; margin:6px 8px 18px; color:#222; }
+   
+   /* -------------------------
+      Left column: games
+      ------------------------- */
+   .col-left .game-list{ display:flex; flex-direction:column; gap:16px; }
+   .game-card{
+     display:flex; align-items:center; gap:14px;
+     padding:14px 16px;
+     border-radius:8px;
+     box-shadow:0 0 0 1px rgba(0,0,0,0.03) inset;
+     min-height:54px;
+     font-weight:700;
+     font-size:15px;
+   }
+   .game-ic { font-size:20px; }
+   .game-yellow{ background:#f7c800; color:#111; border:4px solid rgba(0,0,0,0.03); }
+   .game-light{ background:#eaeaea; color:#222; }
+   .game-teal{ background:#bfe9e3; color:#0b4b45; }
+   
+   /* left column subtle vertical rule to mimic original */
+   .col-left{ padding-right: 14px; border-right: 2px solid rgba(0,0,0,.06); }
+   
+   /* -------------------------
+      Center column: latest news
+      ------------------------- */
+   .latest-row{ display:flex; gap:18px; align-items:flex-start; margin-bottom:18px; }
+   
+   .hero-card{ background:#fff; border-radius:8px; overflow:visible; flex:1 1 0; box-shadow: 0 1px 0 rgba(0,0,0,.04); border: 1px solid rgba(0,0,0,.04); }
+   .hero-image{ height:160px; background:#d8d8d8; border-radius:6px 6px 0 0; margin:18px; }
+   
+   .hero-meta{ padding:0 18px 18px; background:transparent; }
+   .badge{ display:inline-block; font-weight:700; font-size:11px; padding:6px 8px; border-radius:6px; color:#fff; margin-bottom:8px; }
+   .badge-blue{ background:#3bb5ff; color:#fff; }
+   .badge-orange{ background:#ff7323; color:#fff; }
+   .badge-yellow{ background:#f2bf00; color:#111; }
+   .badge-green{ background:#3aa86b; color:#fff; }
+   
+   .hero-title{ font-family:"Playfair Display", serif; font-size:20px; margin:6px 0 8px; line-height:1.05; color:#101010; text-transform:uppercase; font-weight:900; letter-spacing:.6px; }
+   .meta-small{ color:#454545; font-size:13px; opacity:.85; }
+   
+   /* side small article stack */
+   .side-small{ width:260px; display:flex; flex-direction:column; gap:14px; }
+   .small-card{ background:#fff; border-radius:8px; padding:12px; border:1px solid rgba(0,0,0,.04); box-shadow:0 1px 0 rgba(0,0,0,.03); }
+   .small-title{ font-weight:700; font-size:14px; margin:6px 0; }
+   
+   /* photo article with overlay badge */
+   .photo-article{ margin:16px 0 24px; position:relative; }
+   .photo-article img{ width:100%; height:130px; object-fit:cover; border-radius:8px; box-shadow:0 1px 0 rgba(0,0,0,.04); display:block; }
+   .badge-overlay{ position:absolute; right:18px; bottom:18px; }
+   
+   /* NEWS title & filters */
+   .news-header{ display:flex; align-items:center; justify-content:space-between; margin:6px 0 14px; gap:18px; }
+   .news-title{ font-size:18px; font-weight:700; color:#222; margin-left:4px; }
+   .filter-row{ display:flex; gap:10px; align-items:center; }
+   .filter{ padding:6px 10px; border-radius:6px; border:none; font-weight:700; font-size:13px; cursor:pointer; }
+   .filter-all{ background:#0f0f0f; color:#fff; }
+   .filter-blue{ background:#2fb1ff; color:#fff; }
+   .filter-green{ background:#27aa45; color:#fff; }
+   .filter-orange{ background:#f1741f; color:#fff; }
+   .filter-yellow{ background:#f0bf00; color:#111; }
+   
+   /* news grid */
+   .news-grid{
+     display:grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap:18px;
+     margin-top:12px;
+   }
+   .grid-card{
+     background:#fff;
+     border-radius:10px;
+     overflow:hidden;
+     border: 1px solid rgba(0,0,0,.03);
+     display:flex;
+     flex-direction:column;
+     min-height:170px;
+     box-shadow: 0 1px 0 rgba(0,0,0,.03);
+   }
+   .card-media{ height:100px; background:#e6e6e6; border-radius:8px; margin:12px; }
+   .card-body{ padding:8px 12px 16px; display:flex; flex-direction:column; gap:8px; }
+   .small-badge{ padding:6px 8px; border-radius:6px; font-size:11px; display:inline-block; align-self:flex-start; }
+   .card-title{ font-weight:700; font-size:14px; line-height:1.05; text-transform:uppercase; }
+   
+   /* -------------------------
+      Right column: info
+      ------------------------- */
+   .col-right{ padding-left:14px; border-left:2px solid rgba(0,0,0,.06); }
+   .info-box{ background:transparent; margin-bottom:18px; padding:6px 6px; }
+   .info-title{ font-weight:700; letter-spacing:.6px; margin-bottom:10px; }
+   .streak-card{
+     background:#fff; padding:10px; border-radius:8px; display:flex; align-items:center; gap:12px; border:1px solid rgba(0,0,0,.04);
+   }
+   .streak-card.small{ padding:8px; }
+   .streak-num{ background:#fff; color:#111; border-radius:6px; padding:10px 12px; font-weight:900; font-size:22px; box-shadow: inset 0 -2px 0 rgba(0,0,0,.03); }
+   .streak-text{ font-size:13px; color:#333; opacity:.9; }
+   .info-list{ list-style:none; margin-top:6px; display:flex; flex-direction:column; gap:6px; color:#222; }
+   .muted{ color:#2d2d2d; opacity:.85; font-size:13px; }
+   
+   /* -------------------------
+      Footer
+      ------------------------- */
+   .site-footer{ background:#f36c1b; color:#fff; position:fixed; left:0; right:0; bottom:0; padding:14px 22px; }
+   .footer-inner{ max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+   .site-footer a{ color:#fff; margin-left:18px; font-weight:700; text-decoration:underline; text-decoration-thickness:1px; }
+   
+   /* -------------------------
+      Responsive
+      ------------------------- */
+   @media (max-width:1100px){
+     .site-title{ font-size:40px; }
+     .layout{ grid-template-columns: 200px 1fr 220px; max-width:1000px; gap:20px; }
+     .news-grid{ grid-template-columns: repeat(2, 1fr); }
+   }
+   
+   @media (max-width:820px){
+     .site-header{ padding:12px 14px; }
+     .site-title{ font-size:32px; }
+     .layout{ grid-template-columns: 1fr; padding: 0 14px 140px; gap:22px; }
+     .col-left, .col-right{ border: none; padding:0; }
+     .side-small{ width:100%; flex-direction:row; gap:12px; }
+     .latest-row{ flex-direction:column; gap:12px; }
+     .news-grid{ grid-template-columns: 1fr; }
+     .site-footer{ position:static; margin-top:30px; border-top: 3px solid rgba(0,0,0,.04); }
+   }
+   
