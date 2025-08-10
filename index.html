@@ -27,13 +27,14 @@
     <div class="header-right">
       <a class="home-link" href="#">HOME</a>
       <div class="profile">
-        <img src="img/profile.jpg" alt="Profile Picture" class="prof-pic">
+        <img src="img/IcsBuilding.jpg" alt="Profile Picture" class="prof-pic">
         <div class="profile-name">NOLAN<br><span>TREUER</span></div>
       </div>
     </div>
   </header>
 
   <div class="thin-divider"></div>
+   <div class="thin-divider"></div>
 
 
 
@@ -70,42 +71,47 @@
     <section class="col col-center">
       <h3 class="col-heading">LATEST NEWS</h3>
 
-      <!-- top hero + side small cards -->
-      <div class="latest-row">
-        <article class="hero-card">
-          <div class="hero-image" role="img" aria-label="Main article image"></div>
-
+      <!-- Top hero + side small cards -->
+      <div class="latest-row" style="display: flex; gap: 24px; align-items: stretch;">
+        <!-- Hero Card -->
+        <article class="hero-card" style="flex: 2; display: flex; flex-direction: column;">
+          <div class="hero-image" role="img" aria-label="Main article image" style="overflow: hidden; border-radius: 8px; flex: 1;">
+            <img src="img/Placeholder.webp" alt="Main article image" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+          </div>
           <div class="hero-meta">
-            <span class="badge badge-blue">CATEGORY</span>
+            <span class="small-badge badge-blue">CATEGORY</span>
             <h2 class="hero-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN KUHRJWESNDKJGVHBOIUERWHNSKJDH</h2>
             <div class="meta-small">JOHN DOE • 08/01/2026</div>
           </div>
         </article>
 
-        <div class="side-small">
-          <article class="small-card">
-            <span class="badge badge-orange">CATEGORY</span>
-            <h4 class="small-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4>
+        <!-- Side Small Cards -->
+        <div class="side-small" style="flex: 1; display: flex; flex-direction: column; gap: 24px; justify-content: space-between;">
+          <article class="small-card" style="flex: 1; display: flex; flex-direction: column;">
+            <div class="small-image" style="overflow: hidden; border-radius: 8px; flex: 1;">
+              <img src="img/Placeholder.webp" alt="Small article image 1" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            </div>
+            <span class="small-badge badge-blue badge-orange">CATEGORY</span>
+            <h4 class="small-title">BLAHLBLHAFJBIEUSHKGJGBN</h4>
             <div class="meta-small">JOHN DOE • 08/01/2026</div>
           </article>
 
-          <article class="small-card">
-            <span class="badge badge-orange">CATEGORY</span>
-            <h4 class="small-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4>
+          <article class="small-card" style="flex: 1; display: flex; flex-direction: column;">
+            <div class="small-image" style="overflow: hidden; border-radius: 8px; flex: 1;">
+              <img src="img/Placeholder.webp" alt="Small article image 2" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            </div>
+            <span class="small-badge badge-blue badge-orange">CATEGORY</span>
+            <h4 class="small-title">BLAHLBLHAFJBIEUSHKGJGBN</h4>
             <div class="meta-small">JOHN DOE • 08/01/2026</div>
           </article>
         </div>
       </div>
 
-      <!-- wide photo article -->
+      <!-- Wide photo article -->
       <article class="photo-article">
-        <img src="img/school.jpg" alt="School image">
-        <span class="badge badge-yellow badge-overlay">INTER-COMMUNITY SCHOOL ZUMIKON</span>
+        <img src="img/IcsBuilding.jpg" alt="School image">
+        <span class="badge badge-orange badge-overlay">INTER-COMMUNITY SCHOOL ZUMIKON</span>
       </article>
-
-     
-
-      
     </section>
 
     <!-- right info column -->
