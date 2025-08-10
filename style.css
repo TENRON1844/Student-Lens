@@ -21,8 +21,8 @@
   justify-content: space-between;
   padding: 18px 28px;
   background: transparent;
-  max-width: 1200px; /* keeps it aligned with content */
-  margin: 0 auto;    /* centers it */
+  max-width: 1200px;  /* restrict width */
+  margin: 0 auto;     /* center within page */
 }
 
 .header-left {
@@ -36,19 +36,9 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(0,0,0,.12);
-  background: #fff;
   padding: 6px 10px;
   border-radius: 4px;
   min-width: 180px;
-}
-
-.searchwrap input {
-  border: none;
-  outline: none;
-  font-size: 14px;
-  width: 100%;
-  background: transparent;
 }
 
 .top-date {
@@ -60,7 +50,7 @@
 .site-title {
   font-family: "Playfair Display", serif;
   font-weight: 700;
-  font-size: 48px;
+  font-size: 58px;
   color: #203f3a; /* dark teal/green */
   letter-spacing: 2px;
   text-align: center;
@@ -89,7 +79,7 @@
       ------------------------- */
    .layout{
      max-width:1200px;
-     margin: 0px auto;
+     margin: 50px auto;
      display:grid;
      grid-template-columns: 220px 1fr 260px;
      gap: 28px;
@@ -108,7 +98,7 @@
      padding:14px 16px;
      border-radius:8px;
      box-shadow:0 0 0 1px rgba(0,0,0,0.03) inset;
-     min-height:54px;
+     min-height: 140px;
      font-weight:700;
      font-size:15px;
    }
