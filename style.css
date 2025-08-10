@@ -12,40 +12,61 @@
      line-height: 1.3;
    }
    
-   /* -------------------------
-      Header
-      ------------------------- */
-   .site-header{
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     padding: 18px 28px;
-     background: transparent;
-   }
-   .header-left { display:flex; align-items:center; gap:18px; min-width:250px; }
-   .searchwrap {
-     display:flex; align-items:center; gap:8px;
-     border: 1px solid rgba(0,0,0,.12);
-     background: #fff;
-     padding:6px 10px;
-     border-radius:4px;
-     min-width:180px;
-   }
-   .searchwrap input {
-     border: none; outline: none; font-size:14px; width:100%;
-     background: transparent;
-   }
-   .top-date { font-size:14px; color:#333; opacity:.9; }
-   
-   .site-title {
-     font-family: "Playfair Display", serif;
-     font-weight:700;
-     font-size:48px;
-     color:#203f3a; /* dark teal/green */
-     letter-spacing:2px;
-     text-align:center;
-     line-height:1;
-   }
+  /* -------------------------
+   Header
+   ------------------------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  background: transparent;
+  max-width: 1200px; /* keeps it aligned with content */
+  margin: 0 auto;    /* centers it */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 250px;
+}
+
+.searchwrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  min-width: 180px;
+}
+
+.searchwrap input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+  background: transparent;
+}
+
+.top-date {
+  font-size: 14px;
+  color: #333;
+  opacity: .9;
+}
+
+.site-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: #203f3a; /* dark teal/green */
+  letter-spacing: 2px;
+  text-align: center;
+  line-height: 1;
+}
+
    
    .header-right { display:flex; align-items:center; gap:18px; min-width:220px; justify-content:flex-end; }
    .home-link { font-size:14px; color:#1b5b4f; text-decoration:underline; text-decoration-thickness:1px; }
@@ -54,7 +75,7 @@
    
    /* thin divider */
    .thin-divider {
-  height: 1px;
+  height: 4px;
   border-top: 1px solid rgba(0,0,0,.08);
   border-bottom: 1px solid rgba(255,255,255,.6);
 
@@ -68,7 +89,7 @@
       ------------------------- */
    .layout{
      max-width:1200px;
-     margin: 20px auto;
+     margin: 0px auto;
      display:grid;
      grid-template-columns: 220px 1fr 260px;
      gap: 28px;
@@ -104,28 +125,53 @@
       ------------------------- */
    .latest-row{ display:flex; gap:18px; align-items:flex-start; margin-bottom:18px; }
    
-   .hero-card{ background:#fff; border-radius:8px; overflow:visible; flex:1 1 0; box-shadow: 0 1px 0 rgba(0,0,0,.04); border: 1px solid rgba(0,0,0,.04); }
-   .hero-image{ height:160px; background:#d8d8d8; border-radius:6px 6px 0 0; margin:18px; }
-   
-   .hero-meta{ padding:0 18px 18px; background:transparent; }
-   .badge{ display:inline-block; font-weight:700; font-size:11px; padding:6px 8px; border-radius:6px; color:#fff; margin-bottom:8px; }
-   .badge-blue{ background:#3bb5ff; color:#fff; }
-   .badge-orange{ background:#ff7323; color:#fff; }
-   .badge-yellow{ background:#f2bf00; color:#111; }
-   .badge-green{ background:#3aa86b; color:#fff; }
-   
-   .hero-title{ font-family:"Playfair Display", serif; font-size:20px; margin:6px 0 8px; line-height:1.05; color:#101010; text-transform:uppercase; font-weight:900; letter-spacing:.6px; }
-   .meta-small{ color:#454545; font-size:13px; opacity:.85; }
-   
-   /* side small article stack */
-   .side-small{ width:260px; display:flex; flex-direction:column; gap:14px; }
-   .small-card{ background:#fff; border-radius:8px; padding:12px; border:1px solid rgba(0,0,0,.04); box-shadow:0 1px 0 rgba(0,0,0,.03); }
-   .small-title{ font-weight:700; font-size:14px; margin:6px 0; }
+/* Container holding hero + side stack */
+.hero-container {
+  display: flex;
+  align-items: flex-start; /* top align */
+  gap: 18px; /* space between hero and side stack */
+}
+
+/* Hero card */
+.hero-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: visible;
+  flex: 1 1 0;
+  box-shadow: 0 1px 0 rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.04);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Side stack matches hero height */
+.side-small {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%; /* take full height of container */
+}
+
+.badge-blue{ background:#3bb5ff; color:#fff; }
+.badge-orange{ background:#ff7323; color:#fff; }
+.badge-yellow{ background:#f2bf00; color:#111; }
+.badge-green{ background:#3aa86b; color:#fff; }
+
+/* Force both small cards to fit inside */
+.side-small .small-card {
+  background: #fff;
+  border-radius: 8px;
+  flex: 1 1 0; /* evenly split height */
+  display: flex;
+  flex-direction: column;
+}
+
    
    /* photo article with overlay badge */
    .photo-article{ margin:16px 0 24px; position:relative; }
-   .photo-article img{ width:100%; height:130px; object-fit:cover; border-radius:8px; box-shadow:0 1px 0 rgba(0,0,0,.04); display:block; }
-   .badge-overlay{ position:absolute; right:18px; bottom:18px; }
+   .photo-article img{ width:100%; height:200px; object-fit:cover; border-radius:8px; display:block; }
+   .badge-overlay{ position:absolute; right:0px; bottom:0px; }
    
    /* NEWS title & filters */
    .news-header {
@@ -140,6 +186,8 @@
   margin-top: 6px;
   margin-bottom: 14px;
 }
+
+
    .news-title{ font-size:18px; font-weight:700; color:#222; margin-left:4px; }
    .filter-row{ display:flex; gap:10px; align-items:center; }
    .filter{ padding:6px 10px; border-radius:6px; border:none; font-weight:700; font-size:13px; cursor:pointer; }
@@ -182,7 +230,7 @@
    .info-box{ background:transparent; margin-bottom:18px; padding:6px 6px; }
    .info-title{ font-weight:700; letter-spacing:.6px; margin-bottom:10px; }
    .streak-card{
-     background:#fff; padding:10px; border-radius:8px; display:flex; align-items:center; gap:12px; border:1px solid rgba(0,0,0,.04);
+    padding:10px;  display:flex; align-items:center; gap:12px;
    }
    .streak-card.small{ padding:8px; }
    .streak-num{ background:#fff; color:#111; border-radius:6px; padding:10px 12px; font-weight:900; font-size:22px; box-shadow: inset 0 -2px 0 rgba(0,0,0,.03); }
