@@ -53,7 +53,15 @@
    .prof-pic { width:34px; height:34px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 1px 0 rgba(0,0,0,.06); }
    
    /* thin divider */
-   .thin-divider{ height:2px; border-top:1px solid rgba(0,0,0,.08); border-bottom:1px solid rgba(255,255,255,.6); }
+   .thin-divider {
+  height: 1px;
+  border-top: 1px solid rgba(0,0,0,.08);
+  border-bottom: 1px solid rgba(255,255,255,.6);
+
+  max-width: 1160px; /* match your other elements */
+  margin-left: auto;
+  margin-right: auto;
+}
    
    /* -------------------------
       Main layout grid
@@ -120,7 +128,18 @@
    .badge-overlay{ position:absolute; right:18px; bottom:18px; }
    
    /* NEWS title & filters */
-   .news-header{ display:flex; align-items:center; justify-content:space-between; margin:6px 0 14px; gap:18px; }
+   .news-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  max-width: 1160px;  /* match .news-grid */
+  margin-left: auto;  /* center horizontally */
+  margin-right: auto;
+  margin-top: 6px;
+  margin-bottom: 14px;
+}
    .news-title{ font-size:18px; font-weight:700; color:#222; margin-left:4px; }
    .filter-row{ display:flex; gap:10px; align-items:center; }
    .filter{ padding:6px 10px; border-radius:6px; border:none; font-weight:700; font-size:13px; cursor:pointer; }
@@ -133,10 +152,14 @@
    /* news grid */
    .news-grid{
      display:grid;
+     max-width: 1160px;
      grid-template-columns: repeat(4, 1fr);
-     gap:18px;
-     margin-top:12px;
+     gap:14px;
+     margin-left: auto;  /* center horizontally */
+     margin-right: auto;
+     margin-top:30px;
    }
+
    .grid-card{
      background:#fff;
      border-radius:10px;
