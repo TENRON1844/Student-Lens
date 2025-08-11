@@ -1,4 +1,3 @@
-// Firebase config — replace with your own values
 const firebaseConfig = {
   apiKey: "AIzaSyAn6gP_ODz7Q02okhRAwD3gQbviLKI55ys",
   authDomain: "student-lens.firebaseapp.com",
@@ -8,6 +7,7 @@ const firebaseConfig = {
   appId: "1:508910313071:web:0a64976ecfafa6dbadf79a",
   measurementId: "G-PJW9DT3WZ4"
 };
+
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
@@ -21,16 +21,20 @@ function googleSignIn() {
   return auth.signInWithPopup(provider);
 }
 
-document.getElementById('signUpBtn').onclick = function () {
-  googleSignIn().catch(err => {
-    document.getElementById('auth-message').innerText = err.message;
-  });
-};
-document.getElementById('logInBtn').onclick = function () {
-  googleSignIn().catch(err => {
-    document.getElementById('auth-message').innerText = err.message;
-  });
-};
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('signUpBtn').onclick = function () {
+    googleSignIn().catch(err => {
+      console.error('Sign-in error:', err);
+      document.getElementById('auth-message').innerText = err.message;
+    });
+  };
+  document.getElementById('logInBtn').onclick = function () {
+    googleSignIn().catch(err => {
+      console.error('Sign-in error:', err);
+      document.getElementById('auth-message').innerText = err.message;
+    });
+  };
+});
 
 auth.onAuthStateChanged(user => {
   if (user) {
@@ -43,8 +47,3 @@ auth.onAuthStateChanged(user => {
 window.logout = function() {
   auth.signOut();
 };
-
-
-
-
-
