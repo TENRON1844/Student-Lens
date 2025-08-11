@@ -3,7 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Student Lens — Mock (Roles & Workflow)</title>
+  <title>Student Lens — Mock</title>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+  <!-- Fonts (optional for styling) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN / SIGNUP SCREEN -->
+  <div id="auth-screen">
+    <div class="auth-left">
+      <h1>WELCOME TO THE<br>STUDENT LENS<br>WEBSITE</h1>
+    </div>
+    <div class="auth-right">
+      <div class="card">
+        <p>If you are new to the website, please click here:</p>
+        <button id="signUpBtn" class="google-btn">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo"/>
+          Sign up with Google
+        </button>
+      </div>
+      <div class="card">
+        <p>If you are returning to the website, please click here:</p>
+        <button id="logInBtn" class="google-btn">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo"/>
+          Log in with Google
+        </button>
+      </div>
+      <div id="auth-message"></div>
+    </div>
+  </div>
+
+  <!-- MAIN STUDENT LENS PAGE -->
+  <div id="main-screen" style="display:none;">
+    <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Lens — Mock</title>
+
+  <!-- Fonts -->
+ 
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -14,32 +57,53 @@
     <div class="header-left">
       <div class="searchwrap">
         <svg class="icon-search" viewBox="0 0 24 24" aria-hidden><path d="M21 21l-4.35-4.35"></path></svg>
-        <input id="searchInput" type="search" placeholder="Search" aria-label="Search">
+        <input type="search" placeholder="Search" aria-label="Search">
       </div>
-      <div id="topDate" class="top-date"></div>
+      <div class="top-date">17th May, 2025</div>
     </div>
 
     <div class="site-title">STUDENT LENS</div>
 
     <div class="header-right">
-      <div class="profile" id="profileArea">
-        <!-- Login/Register / Profile will be rendered here by JS -->
+      <div class="profile">
+        <div>Home</div>
+        <img src="img/IcsBuilding.jpg" alt="Profile Picture" class="prof-pic">
+        <div class="profile-name">NOLAN<br><span>TREUER</span></div>
       </div>
     </div>
   </header>
 
   <div class="thin-divider"></div>
+   <div class="thin-divider"></div>
+
+
 
   <!-- main layout -->
   <main class="layout">
-
-    <!-- left column (games only, square icons) -->
-    <aside class="col col-left" id="leftColumn">
+    <!-- left games column -->
+    <aside class="col col-left">
       <h3 class="col-heading">GAMES</h3>
+
       <div class="game-list">
-        </button><div class="game-card game-yellow"><div class="game-ic">🐝</div><div class="game-title">Spelling Bee</div></div>
-        </button><div class="game-card game-light"><div class="game-ic">🟩</div><div class="game-title">Wordle</div></div>
-        </button><div class="game-card game-teal"><div class="game-ic">🔗</div><div class="game-title">Strands</div></div>
+        <div class="game-card game-yellow">
+          <div class="game-ic">🐝</div>
+          <div class="game-title">Spelling Bee</div>
+        </div>
+
+        <div class="game-card game-light">
+          <div class="game-ic">🟩</div>
+          <div class="game-title">Wordle</div>
+        </div>
+
+        <div class="game-card game-teal">
+          <div class="game-ic">🔗</div>
+          <div class="game-title">Strands</div>
+        </div>
+
+        <div class="game-card game-teal">
+          <div class="game-ic">🔗</div>
+          <div class="game-title">Strands</div>
+        </div>
       </div>
     </aside>
 
@@ -47,13 +111,46 @@
     <section class="col col-center">
       <h3 class="col-heading">LATEST NEWS</h3>
 
-      <div id="recentList" class="latest-row">
-        <!-- Hero + small cards rendered by JS, entire frames clickable -->
+      <!-- Top hero + side small cards -->
+      <div class="latest-row" style="display: flex; gap: 32px; align-items: stretch;">
+        <!-- Hero Card -->
+        <article class="hero-card" style="flex: 2; display: flex; flex-direction: column;">
+          <div class="hero-image" role="img" aria-label="Main article image" style="overflow: hidden; border-radius: 8px; flex: 1;">
+            <img src="img/Placeholder.webp" alt="Main article image" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+          </div>
+          <div class="hero-meta">
+            <span class="small-badge badge-blue">CATEGORY</span>
+            <h2 class="hero-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN KUHRJWESNDKJGVHBOIUERWHNSKJDH</h2>
+            <div class="meta-small">JOHN DOE • 08/01/2026</div>
+          </div>
+        </article>
+
+        <!-- Side Small Cards -->
+        <div class="side-small" style="flex: 1; display: flex; flex-direction: column; gap: 24px; justify-content: space-between;">
+          <article class="small-card" style="flex: 1; display: flex; flex-direction: column;">
+            <div class="small-image" style="overflow: hidden; border-radius: 8px; flex: 1;">
+              <img src="img/Placeholder.webp" alt="Small article image 1" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            </div>
+            <span class="small-badge badge-blue badge-orange">CATEGORY</span>
+            <h4 class="small-title">BLAHLBLHAFJBIEUSHKGJGBN</h4>
+            <div class="meta-small">JOHN DOE • 08/01/2026</div>
+          </article>
+
+          <article class="small-card" style="flex: 1; display: flex; flex-direction: column;">
+            <div class="small-image" style="overflow: hidden; border-radius: 8px; flex: 1;">
+              <img src="img/Placeholder.webp" alt="Small article image 2" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            </div>
+            <span class="small-badge badge-blue badge-orange">CATEGORY</span>
+            <h4 class="small-title">BLAHLBLHAFJBIEUSHKGJGBN</h4>
+            <div class="meta-small">JOHN DOE • 08/01/2026</div>
+          </article>
+        </div>
       </div>
 
+      <!-- Wide photo article -->
       <article class="photo-article">
-        <img src="img/IcsBuilding.jpg" alt="School image" onerror="this.style.opacity=0.4">
-        <span class="badge badge-orange badge-overlay">INTER-COMMUNITY<br>SCHOOL ZURICH</span>
+        <img src="img/IcsBuilding.jpg" alt="School image">
+        <span class="badge badge-orange badge-overlay">INTER-COMMUNITY SCHOOL ZUMIKON</span>
       </article>
     </section>
 
@@ -63,60 +160,89 @@
 
       <div class="info-box">
         <div class="info-title">STREAK</div>
-        <div class="streak-card"><div class="streak-num" id="streakVal">5</div><div class="streak-text">day<br><small>New streak</small></div></div>
+        <div class="streak-card"><div class="streak-num">5</div><div class="streak-text">day<br><small>New streak</small></div></div>
       </div>
-
-      <div class="info-box" style="margin-top:18px;">
-        <div class="info-title">ACTIONS</div>
-        <div class="sidebar-actions" style="margin-top:10px;">
-          <button class="outline-btn" id="becomeWriterBtn">Become a Writer</button>
-          <button class="outline-btn" id="newArticleBtn">Submit Article</button>
-          <button class="outline-btn" id="myArticlesBtn">My Articles</button>
-          <!-- Removed Logout button from here; will be handled by JS -->
-        </div>
-      </div>
-
-      <div class="info-box" style="margin-top:18px;">
-        <div class="info-title">ARTICLES</div>
-        <div style="margin-top:10px;">
-          <div class="streak-card small"><div class="streak-num" id="pendingCount">0</div><div class="streak-text">Articles Pending</div></div>
-        </div>
-      </div>
-
-      <div class="info-box" style="margin-top:18px;">
+      <br>
+      <div class="info-box">
         <div class="info-title">STUDENT LENS</div>
-        <div style="margin-top:10px; display:flex; flex-direction: column; gap: 8px;">
-          <!-- Changed from <ul><li><a> to buttons styled like other actions -->
-          <button class="outline-btn" id="aboutLink">ABOUT US</button>
-          <button class="outline-btn" id="contactUsBtn">CONTACT US</button>
-        </div>
+        <br>
+        <ul class="info-list">
+          <li>ABOUT US</li>
+          <li>BECOME A WRITER</li>
+        </ul>
       </div>
-
-      <div class="info-box" style="margin-top:18px;">
+      <br><br>
+      <div class="info-box">
         <p class="muted">FOR ANY INQUIRIES, CONTACT US VIA EMAIL OR FIND US IN DSC 21</p>
+      </div>
+      <br>
+      <div class="info-box">
+        <div class="info-title">ARTICLES</div>
+        <br>
+        <div class="streak-card small"><div class="streak-num">3</div><div class="streak-text">Articles Pending</div></div>
       </div>
     </aside>
   </main>
 
-  <!-- NEWS section title and filter -->
-  <div class="news-header">
-    <h3 class="news-title">NEWS</h3>
-    <div class="filter-row" id="filterRow">
-      <button class="filter filter-all" data-cat="ALL">ALL</button>
-      <button class="filter filter-blue" data-cat="Science">Science</button>
-      <button class="filter filter-green" data-cat="Sports">Sports</button>
-      <button class="filter filter-orange" data-cat="Opinion">Opinion</button>
-      <button class="filter filter-yellow" data-cat="Events">Events</button>
-    </div>
+     <!-- NEWS section title and filter -->
+      <div class="news-header">
+        <h3 class="news-title">NEWS</h3>
+        <div class="filter-row">
+          <button class="filter filter-all">ALL</button>
+          <button class="filter filter-blue">CATEGORY</button>
+          <button class="filter filter-green">CATEGORY</button>
+          <button class="filter filter-orange">CATEGORY</button>
+          <button class="filter filter-yellow">CATEGORY</button>
+        </div>
+      </div>
+
+    <div class="thin-divider"></div>
+
+   <div class="news-grid">
+        <!-- repeat a number of cards (hardcoded) -->
+        <article class="grid-card">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <span class="badge badge-orange small-badge">CATEGORY</span>
+            <h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4>
+            <div class="meta-small">JOHN DOE • 08/01/2026</div>
+          </div>
+        </article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        <article class="grid-card"><div class="card-media"></div><div class="card-body"><span class="badge badge-orange small-badge">CATEGORY</span><h4 class="card-title">BLAHLBLHAFJBIEUSHKGJBRKSHKJGBN</h4><div class="meta-small">JOHN DOE • 08/01/2026</div></div></article>
+
+        
   </div>
 
-  <div class="thin-divider"></div>
-
-  <div class="news-grid" id="newsGrid">
-    <!-- Article cards rendered by JS, entire frames clickable -->
-  </div>
-
-  <!-- Footer -->
+  <!-- footer bar -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-left">THE STUDENT LENS</div>
@@ -124,9 +250,11 @@
     </div>
   </footer>
 
-  <!-- Modals and templates (hidden, JS will show) -->
-  <div id="modalRoot" class="modal-root" aria-hidden="true"></div>
+</body>
+  </div>
 
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
+
+
