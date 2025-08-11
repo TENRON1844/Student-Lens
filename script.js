@@ -3,7 +3,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyAn6gP_ODz7Q02okhRAwD3gQbviLKI55ys",
   authDomain: "https://tenron1844.github.io/Student-Lens/#",
   projectId: "student-lens",
-  storageBucket: "student-lens.firebasestorage.app",
+  storageBucket: "student-lens.appspot.com",
   messagingSenderId: "508910313071",
   appId: "1:508910313071:web:0a64976ecfafa6dbadf79a",
   measurementId: "G-PJW9DT3WZ4"
@@ -43,6 +43,7 @@ auth.onAuthStateChanged(user => {
 window.logout = function() {
   auth.signOut();
 };
+
 
 
 
