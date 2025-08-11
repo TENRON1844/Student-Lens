@@ -9,7 +9,7 @@
 /* =========================
    CONFIG
    ========================= */
-const USE_FIREBASE = false; // flip later if you integrate Firebase
+const USE_FIREBASE = true; // flip later if you integrate Firebase
 const LS_KEY = 'studentlens_demo_v1'; // keep same demo key so older demo data stays
 
 /* =========================
@@ -1062,3 +1062,4 @@ renderAll();
    - USE_FIREBASE toggle is present for future migration; you'll replace localStorage reads/writes
      with Firestore reads/writes and add auth accordingly.
 */
+
