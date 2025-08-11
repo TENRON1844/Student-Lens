@@ -9,7 +9,7 @@
 /* =========================
    CONFIG
    ========================= */
-const USE_FIREBASE = true; // flip later if you integrate Firebase
+const USE_FIREBASE = false; // flip later if you integrate Firebase
 const LS_KEY = 'studentlens_demo_v1'; // keep same demo key so older demo data stays
 
 /* =========================
@@ -171,8 +171,13 @@ function renderProfileArea() {
       <button class="outline-btn" id="signupBtn">Sign Up</button>
     `;
     area.appendChild(html);
-    $('#loginBtn')?.addEventListener('click', openLoginModal);
-    $('#signupBtn')?.addEventListener('click', openSignupModal);
+
+const loginBtn = document.getElementById('loginBtn');
+if (loginBtn) loginBtn.addEventListener('click', openLoginModal);
+
+const signupBtn = document.getElementById('signupBtn');
+if (signupBtn) signupBtn.addEventListener('click', openSignupModal);
+
   } else {
     const p = document.createElement('div');
     p.innerHTML = `
@@ -1062,4 +1067,3 @@ renderAll();
    - USE_FIREBASE toggle is present for future migration; you'll replace localStorage reads/writes
      with Firestore reads/writes and add auth accordingly.
 */
-
