@@ -1,65 +1,200 @@
-// Your Google OAuth 2.0 Web Client ID from Google Cloud Console
-const CLIENT_ID = "http://538948576836-1kk0cph50bg3e5ulupjhhjri6nm13snh.apps.googleusercontent.com";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Lens — Mock</title>
 
-// Called when Google returns the credential
-function handleCredentialResponse(response) {
-    // This is the ID token (JWT)
-    const token = response.credential;
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 
-    // Decode it for display
-    const payload = JSON.parse(atob(token.split('.')[1]));
+  <!-- Fonts / Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    console.log("Google payload:", payload);
+  <!-- LOGIN / SIGNUP SCREEN -->
+  <div id="auth-screen">
+    <div class="auth-left">
+      <h1>WELCOME TO THE<br>STUDENT LENS<br>WEBSITE</h1>
+    </div>
+    <div class="auth-right">
+      <div class="card">
+        <p>If you are new to the website, please click here:</p>
+        <button id="signUpBtn" class="google-btn">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo"/>
+          Sign up with Google
+        </button>
+      </div>
+      <div class="card">
+        <p>If you are returning to the website, please click here:</p>
+        <button id="logInBtn" class="google-btn">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo"/>
+          Log in with Google
+        </button>
+      </div>
+      <div id="auth-message"></div>
+    </div>
+  </div>
 
-    // Simulated account storage in localStorage
-    const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
+  <!-- MAIN STUDENT LENS PAGE -->
+  <div id="main-screen" style="display:none;">
 
-    // Check if user is new or returning
-    const isExisting = existingUsers.some(user => user.email === payload.email);
+    <!-- top header -->
+    <header class="site-header">
+      <div class="header-left">
+        <div class="searchwrap">
+          <svg class="icon-search" viewBox="0 0 24 24" aria-hidden><path d="M21 21l-4.35-4.35"></path></svg>
+          <input type="search" placeholder="Search" aria-label="Search">
+        </div>
+        <div class="top-date">17th May, 2025</div>
+      </div>
 
-    if (window.authMode === "signup") {
-        if (isExisting) {
-            document.getElementById("auth-message").textContent =
-                "Account already exists. Please log in.";
-        } else {
-            existingUsers.push({ email: payload.email, name: payload.name });
-            localStorage.setItem("users", JSON.stringify(existingUsers));
-            document.getElementById("auth-message").textContent =
-                Welcome, ${payload.name}! Account created.;
-            showMainScreen();
-        }
-    } else if (window.authMode === "login") {
-        if (isExisting) {
-            document.getElementById("auth-message").textContent =
-                Welcome back, ${payload.name}!;
-            showMainScreen();
-        } else {
-            document.getElementById("auth-message").textContent =
-                "No account found. Please sign up first.";
-        }
+      <div class="site-title">STUDENT LENS</div>
+
+      <div class="header-right">
+        <div class="profile">
+          <div>Home</div>
+          <img id="profile-pic" src="img/IcsBuilding.jpg" alt="Profile Picture" class="prof-pic">
+          <div id="profile-name" class="profile-name">NOLAN<br><span>TREUER</span></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="thin-divider"></div>
+    <div class="thin-divider"></div>
+
+    <!-- main layout -->
+    <main class="layout">
+      <!-- left games column -->
+      <aside class="col col-left">
+        <h3 class="col-heading">GAMES</h3>
+        <div class="game-list">
+          <div class="game-card game-yellow">
+            <div class="game-ic">🐝</div>
+            <div class="game-title">Spelling Bee</div>
+          </div>
+          <div class="game-card game-light">
+            <div class="game-ic">🟩</div>
+            <div class="game-title">Wordle</div>
+          </div>
+          <div class="game-card game-teal">
+            <div class="game-ic">🔗</div>
+            <div class="game-title">Strands</div>
+          </div>
+          <div class="game-card game-teal">
+            <div class="game-ic">🔗</div>
+            <div class="game-title">Strands</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- centre news column -->
+      <section class="col col-center">
+        <h3 class="col-heading">LATEST NEWS</h3>
+        <div class="latest-row" style="display: flex; gap: 32px; align-items: stretch;">
+          <article class="hero-card" style="flex: 2; display: flex; flex-direction: column;">
+            <div class="hero-image" style="overflow: hidden; border-radius: 8px; flex: 1;">
+              <img src="img/Placeholder.webp" alt="Main article image" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+            </div>
+            <div class="hero-meta">
+              <span class="small-badge badge-blue">CATEGORY</span>
+              <h2 class="hero-title">Sample Headline Here</h2>
+              <div class="meta-small">JOHN DOE • 08/01/2026</div>
+            </div>
+          </article>
+
+          <div class="side-small" style="flex: 1; display: flex; flex-direction: column; gap: 24px; justify-content: space-between;">
+            <article class="small-card" style="flex: 1; display: flex; flex-direction: column;">
+              <div class="small-image" style="overflow: hidden; border-radius: 8px; flex: 1;">
+                <img src="img/Placeholder.webp" alt="Small article image 1" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              </div>
+              <span class="small-badge badge-blue badge-orange">CATEGORY</span>
+              <h4 class="small-title">Small Card Title</h4>
+              <div class="meta-small">JOHN DOE • 08/01/2026</div>
+            </article>
+
+            <article class="small-card" style="flex: 1; display: flex; flex-direction: column;">
+              <div class="small-image" style="overflow: hidden; border-radius: 8px; flex: 1;">
+                <img src="img/Placeholder.webp" alt="Small article image 2" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              </div>
+              <span class="small-badge badge-blue badge-orange">CATEGORY</span>
+              <h4 class="small-title">Small Card Title</h4>
+              <div class="meta-small">JOHN DOE • 08/01/2026</div>
+            </article>
+          </div>
+        </div>
+
+        <article class="photo-article">
+          <img src="img/IcsBuilding.jpg" alt="School image">
+          <span class="badge badge-orange badge-overlay">INTER-COMMUNITY SCHOOL ZUMIKON</span>
+        </article>
+      </section>
+
+      <!-- right info column -->
+      <aside class="col col-right">
+        <h3 class="col-heading">INFO</h3>
+        <div class="info-box">
+          <div class="info-title">STREAK</div>
+          <div class="streak-card"><div class="streak-num">5</div><div class="streak-text">day<br><small>New streak</small></div></div>
+        </div>
+        <br>
+        <div class="info-box">
+          <div class="info-title">STUDENT LENS</div>
+          <br>
+          <ul class="info-list">
+            <li>ABOUT US</li>
+            <li>BECOME A WRITER</li>
+          </ul>
+        </div>
+        <br><br>
+        <div class="info-box">
+          <p class="muted">FOR ANY INQUIRIES, CONTACT US VIA EMAIL OR FIND US IN DSC 21</p>
+        </div>
+        <br>
+        <div class="info-box">
+          <div class="info-title">ARTICLES</div>
+          <br>
+          <div class="streak-card small"><div class="streak-num">3</div><div class="streak-text">Articles Pending</div></div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- footer bar -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">THE STUDENT LENS</div>
+        <div class="footer-right"><a href="#">ABOUT US</a><a href="#">CONTACT US</a></div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Script for Google Login -->
+  <script>
+    function handleCredentialResponse(response) {
+      const data = jwt_decode(response.credential);
+      document.getElementById('auth-screen').style.display = 'none';
+      document.getElementById('main-screen').style.display = 'block';
+      document.getElementById('profile-name').innerHTML = data.name;
+      document.getElementById('profile-pic').src = data.picture;
     }
-}
 
-function showMainScreen() {
-    document.getElementById("auth-screen").style.display = "none";
-    document.getElementById("main-screen").style.display = "block";
-}
-
-// Initialize Google Sign-In
-window.onload = function () {
-    google.accounts.id.initialize({
-        client_id: CLIENT_ID,
+    window.onload = function () {
+      google.accounts.id.initialize({
+        client_id: "YOUR_GOOGLE_CLIENT_ID",
         callback: handleCredentialResponse
-    });
+      });
 
-    // Hook up buttons
-    document.getElementById("signUpBtn").addEventListener("click", () => {
-        window.authMode = "signup";
-        google.accounts.id.prompt(); // or render the One Tap
-    });
-
-    document.getElementById("logInBtn").addEventListener("click", () => {
-        window.authMode = "login";
+      document.getElementById("signUpBtn").addEventListener("click", function() {
         google.accounts.id.prompt();
-    });
-};
+      });
+      document.getElementById("logInBtn").addEventListener("click", function() {
+        google.accounts.id.prompt();
+      });
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+
+</body>
+</html>
